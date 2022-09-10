@@ -1,5 +1,7 @@
 package kartyatrukk;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static String[] pakli = {"P_ÁSZ", "P_KIR", "P_FEL", "P_X", "P_IX",
@@ -59,11 +61,14 @@ public class Main {
 
     }
 
-    public static void kever() {
+    private static int melyik() {
+        Scanner beker = new Scanner(System.in);
+        System.out.print("Melyik sorban van a választott lap? ");
+        return beker.nextInt();
 
     }
 
-    private static void melyik() {
+    public static void kever() {
 
     }
 
