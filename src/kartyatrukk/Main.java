@@ -19,6 +19,24 @@ public class Main {
     }
 
     public static void feltolt() {
+        int index = 0;
+        while (index < pakli.length) {
+            for (int i = 0; i < sor1.length; i++) {
+                sor1[i] = pakli[index];
+                index++;
+            }
+
+            for (int i = 0; i < sor2.length; i++) {
+                sor2[i] = pakli[index];
+                index++;
+            }
+
+            for (int i = 0; i < sor3.length; i++) {
+                sor3[i] = pakli[index];
+                index++;
+            }
+
+        }
 
     }
 
