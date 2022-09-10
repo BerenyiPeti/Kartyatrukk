@@ -41,6 +41,21 @@ public class Main {
     }
 
     public static void sorokKirak() {
+        System.out.print("1. sor: ");
+        for (String sor : sor1) {
+            System.out.print(sor + "    ");
+        }
+        System.out.println("");
+        System.out.print("2. sor: ");
+        for (String sor : sor2) {
+            System.out.print(sor + "    ");
+        }
+        System.out.println("");
+        System.out.print("3. sor: ");
+        for (String sor : sor3) {
+            System.out.print(sor + "    ");
+        }
+        System.out.println("");
 
     }
 
