@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         feltolt();
         sorokKirak();
-        melyik();
+        //melyik();
         kever();
         valasztottLap();
 
@@ -67,8 +67,67 @@ public class Main {
         return beker.nextInt();
 
     }
+    
+    
 
     public static void kever() {
+        int melyik = melyik();
+        
+        String[] valSor = new String[7];
+        String[] tempSor = new String[14];
+        switch (melyik) {
+            case 1:
+                valSor = sor1;
+                break;
+            case 2:
+                valSor = sor2;
+                break;
+            default:
+                valSor = sor3;
+                break;
+        }
+        
+        int tempSorIndex = 0;
+        
+        for (int i = 0; i < pakli.length; i++) {
+            int index = 0;
+            
+            while (index < valSor.length && pakli[i] != valSor[index]) {
+                index++;
+            }
+            
+            boolean benneVan = index < valSor.length;
+            
+            //System.out.println(benneVan);
+                    
+               
+            if (!benneVan) {
+                tempSor[tempSorIndex] = pakli[i];
+                tempSorIndex ++;
+            }
+            
+            /*if (!(index < valSor.length)) {
+                tempSor[index] = pakli[i];
+            }
+            
+            System.out.println("pakli[index]: " + pakli[index]);*/
+     
+            }
+        
+        
+        
+        for (String sor : valSor) {
+            System.out.print(sor + "    ");
+        }
+        System.out.println("");
+        
+        for (String sor : tempSor) {
+            System.out.print(sor + "    ");
+        }
+        System.out.println("");
+        
+        
+        
 
     }
 
