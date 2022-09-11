@@ -10,12 +10,16 @@ public class Main {
     public static String[] sor1 = new String[7];
     public static String[] sor3 = new String[7];
     public static String[] sor2 = new String[7];
+    public static String[] tempPakli = new String[21];
 
     public static void main(String[] args) {
         feltolt();
-        sorokKirak();
-        //melyik();
-        kever();
+        for (int i = 0; i < 3; i++) {
+            sorokKirak();
+            kever();
+            System.out.println("Pillanat, a gép kever...");
+        }
+        
         valasztottLap();
 
     }
@@ -68,13 +72,11 @@ public class Main {
 
     }
     
-    
-
     public static void kever() {
         int melyik = melyik();
         
-        String[] valSor = new String[7];
-        String[] tempSor = new String[14];
+        String[] valSor;
+        String[] nemValSor = new String[14];
         switch (melyik) {
             case 1:
                 valSor = sor1;
@@ -95,44 +97,70 @@ public class Main {
             while (index < valSor.length && pakli[i] != valSor[index]) {
                 index++;
             }
-            
+           
             boolean benneVan = index < valSor.length;
             
-            //System.out.println(benneVan);
-                    
-               
             if (!benneVan) {
-                tempSor[tempSorIndex] = pakli[i];
+                nemValSor[tempSorIndex] = pakli[i];
                 tempSorIndex ++;
             }
-            
-            /*if (!(index < valSor.length)) {
-                tempSor[index] = pakli[i];
-            }
-            
-            System.out.println("pakli[index]: " + pakli[index]);*/
-     
-            }
-        
-        
-        
-        for (String sor : valSor) {
-            System.out.print(sor + "    ");
         }
+        
         System.out.println("");
         
-        for (String sor : tempSor) {
-            System.out.print(sor + "    ");
+        for (int i = 0; i < 7; i++) {
+           tempPakli[i] = nemValSor[i];
         }
-        System.out.println("");
+        for (int i = 0; i < 7; i++) {
+           tempPakli[i+7] = valSor[i];
+        }
+        for (int i = 0; i < 7; i++) {
+           tempPakli[i+14] = nemValSor[i+7];
+        }
+        
+        /*System.out.print("tempPakli: ");
+        for (String sor : tempPakli) {
+            System.out.print(sor + ", ");
+        }
+        System.out.println("");*/
         
         
+        int index = 0;
+        for (int i = 0; i < tempPakli.length && index < sor1.length; i+= 3) {
+            sor1[index] = tempPakli[i];
+            sor2[index] = tempPakli[i + 1];
+            sor3[index] = tempPakli[i + 2];
+            index++;
+            
+        }
         
-
+        //teszt();
+        
+        
     }
 
     private static void valasztottLap() {
-
+        System.out.println("A választott kártyád, a " + tempPakli[10]);
     }
+    
+   private static void teszt() {
+       
+        
+        System.out.print("sor1: ");
+        for (String sor : sor1) {
+            System.out.print(sor + "    ");
+        }
+        System.out.println("");
+        System.out.print("sor2: ");
+        for (String sor : sor2) {
+            System.out.print(sor + "    ");
+        }
+        System.out.println("");
+        System.out.print("sor3: ");
+        for (String sor : sor3) {
+            System.out.print(sor + "    ");
+        }
+        System.out.println("");
+   }
 
 }
